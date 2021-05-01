@@ -1,4 +1,9 @@
 /// <reference types="next" />
 /// <reference types="next/types/global" />
 
-declare module 'potato' {}
+declare namespace NodeJS {
+  interface ProcessEnv {
+    DETA_KEY: string
+    SESSION_PASSWORD: string
+  }
+}

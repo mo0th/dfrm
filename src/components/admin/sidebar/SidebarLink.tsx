@@ -1,0 +1,37 @@
+import Link from 'next/link'
+import { ReactNode } from 'react'
+
+const variants = {
+  default: '',
+  outlined: 'border border-gray-500',
+}
+
+interface SidebarLinkProps {
+  href: string
+  active?: boolean
+  icon?: ReactNode
+  variant?: keyof typeof variants
+}
+
+const SidebarLink: React.FC<SidebarLinkProps> = ({
+  active,
+  href,
+  children,
+  icon,
+  variant = 'default',
+}) => {
+  return (
+    <Link href={href}>
+      <a
+        className={`flex items-center px-3 py-2 transition-colors rounded hover:bg-gray-300 focus:bg-gray-300 ${
+          variants[variant]
+        } ${active ? 'bg-gray-200' : ''}`}
+      >
+        {icon}
+        <span>{children}</span>
+      </a>
+    </Link>
+  )
+}
+
+export default SidebarLink

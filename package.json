@@ -11,14 +11,23 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@headlessui/react": "^1.1.1",
+    "@heroicons/react": "^1.0.1",
+    "deta": "^0.0.8",
+    "nanoid": "^3.1.22",
     "next": "latest",
+    "next-connect": "^0.10.1",
+    "next-iron-session": "^4.1.13",
     "react": "^17.0.1",
-    "react-dom": "^17.0.1"
+    "react-dom": "^17.0.1",
+    "yup": "^0.32.9"
   },
   "devDependencies": {
+    "@types/deta": "^0.0.0",
     "@types/node": "^15.0.1",
     "@types/react": "^17.0.4",
     "@types/react-dom": "^17.0.3",
+    "@types/tailwindcss": "^2.0.2",
     "@typescript-eslint/eslint-plugin": "^4.22.0",
     "@typescript-eslint/parser": "^4.22.0",
     "autoprefixer": "^10.0.4",
