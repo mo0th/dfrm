@@ -1,6 +1,7 @@
 import { ApiRequest, ApiResponse, ApiRouter } from '@/types/api'
 import nextConnect from 'next-connect'
-import { STATUS_CODES } from 'node:http'
+import { STATUS_CODES } from 'http'
+import { ValidationError } from 'yup'
 import { sessionMiddleware } from './auth'
 import { checkAuthMiddleware } from './auth/service'
 
@@ -27,6 +28,10 @@ export const createRouter = (): ApiRouter =>
 
         if (err instanceof ApiError) {
           statusCode = err.code
+        }
+
+        if (err instanceof ValidationError) {
+          statusCode = 406
         }
 
         res.status(statusCode).json({ message: err.message })

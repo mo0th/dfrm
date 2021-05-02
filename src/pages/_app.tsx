@@ -1,8 +1,13 @@
 import Head from 'next/head'
 import { AppProps } from 'next/app'
-import '../styles/globals.css'
-import Header from '@/components/Header'
+import { SWRConfig } from 'swr'
+
 import { UIContextProvider } from '@/context/UIContext'
+import { AuthProvider } from '@/context/AuthContext'
+import { swrFetcher } from '@/lib/api-client'
+
+import '../styles/globals.css'
+import '../styles/forms.css'
 
 const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
   return (
@@ -10,10 +15,13 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
       <Head>
         <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
       </Head>
-      <UIContextProvider>
-        <Header />
-        <Component {...pageProps} />
-      </UIContextProvider>
+      <SWRConfig value={{ fetcher: swrFetcher }}>
+        <AuthProvider>
+          <UIContextProvider>
+            <Component {...pageProps} />
+          </UIContextProvider>
+        </AuthProvider>
+      </SWRConfig>
     </>
   )
 }

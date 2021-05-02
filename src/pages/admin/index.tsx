@@ -1,13 +1,13 @@
 import AdminContent from '@/components/admin/AdminContent'
-import AdminLayout from '@/components/admin/AdminLayout'
+import AdminWrapper from '@/components/admin/AdminLayout'
 
 interface AdminHomeProps {}
 
 const AdminHome: React.FC<AdminHomeProps> = () => {
   return (
-    <AdminLayout>
+    <AdminWrapper>
       <AdminContent title="Overview"></AdminContent>
-    </AdminLayout>
+    </AdminWrapper>
   )
 }
 

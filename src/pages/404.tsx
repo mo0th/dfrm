@@ -1,7 +1,7 @@
-import AdminLayout from '@/components/admin/AdminLayout'
+import AdminWrapper from '@/components/admin/AdminLayout'
 
 const NotFound: React.FC = () => {
-  return <AdminLayout>NotFound works!</AdminLayout>
+  return <AdminWrapper>NotFound works!</AdminWrapper>
 }
 
 export default NotFound

@@ -1,13 +1,13 @@
 import AdminContent from '@/components/admin/AdminContent'
-import AdminLayout from '@/components/admin/AdminLayout'
+import AdminWrapper from '@/components/admin/AdminLayout'
 
 interface NewFormPageProps {}
 
 const NewFormPage: React.FC<NewFormPageProps> = () => {
   return (
-    <AdminLayout>
+    <AdminWrapper>
       <AdminContent title="Create New Form">Create a new form</AdminContent>
-    </AdminLayout>
+    </AdminWrapper>
   )
 }
 

@@ -23,7 +23,7 @@ const SidebarLink: React.FC<SidebarLinkProps> = ({
   return (
     <Link href={href}>
       <a
-        className={`flex items-center px-3 py-2 transition-colors rounded hover:bg-gray-300 focus:bg-gray-300 ${
+        className={`flex items-center px-3 py-2 transition-colors rounded hover:text-purple-800 hover:bg-gray-300 focus:bg-gray-300 ${
           variants[variant]
         } ${active ? 'bg-gray-200' : ''}`}
       >
