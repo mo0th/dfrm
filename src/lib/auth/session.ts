@@ -7,7 +7,7 @@ export const sessionMiddleware: ApiMiddleware = session({
   name: 'dfrm:session',
   secure: process.env.NODE_ENV === 'production',
   maxAge: 15 * 24 * 60 * 60 * 1000,
-  sameSite: 'lax',
+  sameSite: 'strict',
 }) as any
 
 export const setUserIdInSession = (req: ApiRequest, userId: string): void => {
