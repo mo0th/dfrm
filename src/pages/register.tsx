@@ -65,7 +65,7 @@ const Registerpage: React.FC<RegisterPageProps> = () => {
               <a className="text-gray-600 hover:text-purple-600">Already have an account?</a>
             </Link>
             <Button disabled={loading} type="submit">
-              {loading ? 'Loading' : 'Login'}
+              {loading ? 'Loading' : 'Register'}
             </Button>
           </div>
         </form>
