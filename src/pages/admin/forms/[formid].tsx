@@ -14,7 +14,9 @@ const FormDetailsPage: React.FC<FormDetailsPageProps> = () => {
 
   return (
     <AdminWrapper>
-      <AdminContent title={form?.name}>Details for form with id: {formId}</AdminContent>
+      <AdminContent loading={!form} title={form?.name}>
+        Details for form with id: {formId}
+      </AdminContent>
     </AdminWrapper>
   )
 }

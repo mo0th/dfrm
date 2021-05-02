@@ -21,7 +21,7 @@ const AdminWrapper: React.FC<MainLayoutProps> = ({ children }) => {
   return (
     <>
       <AdminHeader />
-      <div className="relative flex flex-row flex-1 w-full h-full max-w-screen-lg mx-auto md:py-4">
+      <div className="relative flex flex-row flex-1 w-full h-full max-w-screen-lg py-4 mx-auto md:py-8">
         <div
           onClickCapture={() => toggleSidebar(false)}
           className={`md:hidden absolute inset-0 bg-gray-500 duration-75 transition-opacity ${
