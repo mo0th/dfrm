@@ -46,7 +46,7 @@ const LoginPage: React.FC<LoginPageProps> = () => {
           ) : null}
           <div className="flex flex-col space-y-2">
             <label htmlFor="username">Username</label>
-            <input required type="text" name="username" id="username" />
+            <input required type="text" name="username" id="username" autoComplete="username" />
           </div>
           <div className="flex flex-col space-y-2">
             <label htmlFor="password">Password</label>
