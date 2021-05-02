@@ -1,5 +1,11 @@
+import clsx from 'clsx'
 import Link from 'next/link'
 import { ReactNode } from 'react'
+
+const common = {
+  base:
+    'flex items-center px-3 py-2 transition-colors rounded hover:text-purple-800 hover:bg-gray-300 focus:bg-gray-300',
+}
 
 const variants = {
   default: '',
@@ -22,11 +28,7 @@ const SidebarLink: React.FC<SidebarLinkProps> = ({
 }) => {
   return (
     <Link href={href}>
-      <a
-        className={`flex items-center px-3 py-2 transition-colors rounded hover:text-purple-800 hover:bg-gray-300 focus:bg-gray-300 ${
-          variants[variant]
-        } ${active ? 'bg-gray-200' : ''}`}
-      >
+      <a className={clsx(common.base, variants[variant], active && 'bg-gray-200')}>
         {icon}
         <span>{children}</span>
       </a>

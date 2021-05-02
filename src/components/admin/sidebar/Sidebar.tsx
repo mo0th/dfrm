@@ -4,6 +4,8 @@ import { PlusIcon } from '@heroicons/react/outline'
 import SidebarGroup from './SidebarGroup'
 import SidebarLink from './SidebarLink'
 import { useRouter } from 'next/dist/client/router'
+import useSWR from 'swr'
+import { FormWithoutSchema } from '@/types/forms'
 
 interface SidebarProps {}
 
@@ -11,6 +13,8 @@ const Sidebar: React.FC<SidebarProps> = () => {
   const { toggleSidebar } = useUI()
 
   const { asPath } = useRouter()
+
+  const { data: { forms } = {} } = useSWR<{ forms: FormWithoutSchema[] }>('/admin/forms')
 
   const handleSidebarClick: MouseEventHandler = event => {
     // Close sidebar is a link was cliked
@@ -20,10 +24,7 @@ const Sidebar: React.FC<SidebarProps> = () => {
     }
   }
 
-  const formLinks = [
-    { href: '/admin/forms/c_234', title: 'Untitled Form' },
-    { href: '/admin/forms/form-2341', title: 'Untitled Form' },
-  ]
+  const formLinks = forms?.map(({ id, name }) => ({ title: name, href: `/admin/forms/${id}` }))
 
   return (
     <>
@@ -33,13 +34,21 @@ const Sidebar: React.FC<SidebarProps> = () => {
             <SidebarLink active={asPath === '/admin'} href="/admin">
               Overview
             </SidebarLink>
+            <SidebarLink active={asPath === '/admin/recent'} href="/admin/recent">
+              Recent Submissions
+            </SidebarLink>
           </SidebarGroup>
           <SidebarGroup title="Forms">
-            {formLinks.map(({ href, title }) => (
-              <SidebarLink key={href} href={href} active={asPath.startsWith(href)}>
-                {title}
-              </SidebarLink>
-            ))}
+            {/* There are 1+ forms */}
+            {formLinks
+              ? formLinks.map(({ href, title }) => (
+                  <SidebarLink key={href} href={href} active={asPath.startsWith(href)}>
+                    {title}
+                  </SidebarLink>
+                ))
+              : null}
+
+            {!formLinks && <>Loading</>}
             <SidebarLink
               href="/admin/forms/new"
               variant="outlined"
