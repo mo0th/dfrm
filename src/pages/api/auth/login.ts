@@ -9,4 +9,5 @@ export default createRouter().post(async (req, res) => {
   setUserIdInSession(req, userId)
 
   res.json({ success: true })
+  console.log(res.headersSent, res.getHeaders())
 })
