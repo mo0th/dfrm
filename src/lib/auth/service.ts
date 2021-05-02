@@ -36,7 +36,9 @@ export const getPublicUser = async (userId: string): Promise<PublicUser | null> 
 export const login = async (username: string, password: string): Promise<string> => {
   const user = await fetchOne<User>(usersDb, { username })
 
-  if (!user || !(await bcrypt.compare(user.password, password))) {
+  console.log(user)
+
+  if (!user || !(await bcrypt.compare(password, user.password))) {
     throw new ApiError(406, 'Invalid Login')
   }
 
