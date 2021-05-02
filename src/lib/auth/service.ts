@@ -3,7 +3,7 @@ import { nanoid } from 'nanoid'
 import { ApiError } from '@/lib/router'
 import { usersDb } from './base'
 import { PublicUser, User } from '@/types/auth'
-import argon2 from 'argon2'
+import bcrypt from 'bcrypt'
 import { fetchOne } from '@/utils/deta'
 import { omit } from '@/utils/obj'
 import { SESSION_USERID } from '@/constants'
@@ -36,7 +36,7 @@ export const getPublicUser = async (userId: string): Promise<PublicUser | null> 
 export const login = async (username: string, password: string): Promise<string> => {
   const user = await fetchOne<User>(usersDb, { username })
 
-  if (!user || !(await argon2.verify(user.password, password))) {
+  if (!user || !(await bcrypt.compare(user.password, password))) {
     throw new ApiError(406, 'Invalid Login')
   }
 
@@ -60,7 +60,7 @@ export const register = async (
     {
       id: userId,
       username,
-      password: await argon2.hash(password),
+      password: await bcrypt.hash(password, 12),
       roles: admin ? ['admin', 'user'] : ['user'],
     },
     userId
