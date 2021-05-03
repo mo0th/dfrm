@@ -39,10 +39,7 @@ const Sidebar: React.FC<SidebarProps> = () => {
 
   return (
     <>
-      <div
-        onClickCapture={handleSidebarClick}
-        className="h-full p-4 overflow-y-auto bg-white md:py-8"
-      >
+      <div onClickCapture={handleSidebarClick} className="p-4">
         <nav className="space-y-6">
           <SidebarGroup title="General">
             <SidebarLink active={asPath === '/admin'} href="/admin">

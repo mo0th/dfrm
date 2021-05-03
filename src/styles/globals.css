@@ -7,3 +7,30 @@ body,
 #__next {
   @apply min-h-screen;
 }
+
+:root {
+  --clr-scrollbar: theme('colors.purple.500');
+}
+
+@screen sm {
+  // Chrome
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: theme('colors.purple.200');
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border-radius: 100px;
+    background-color: var(--clr-scrollbar);
+  }
+
+  // Firefox
+  * {
+    scrollbarwidth: 'thin';
+    scrollbarcolor: var(--clr-scrollbar) theme('colors.purple.200');
+  }
+}
