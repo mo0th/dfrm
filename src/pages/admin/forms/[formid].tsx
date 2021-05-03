@@ -37,6 +37,9 @@ const FormDetailsPage: React.FC<FormDetailsPageProps> = () => {
         ) : (
           <div>
             <p className="italic text-gray-600">id: {formId}</p>
+            {/* {Array.from({ length: 30 }, (_, i) => (
+              <p key={i}>{i}</p>
+            ))} */}
           </div>
         )}
       </AdminContent>
