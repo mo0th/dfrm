@@ -11,7 +11,7 @@ import Button from '../shared/Button'
 interface HeaderProps {}
 
 const menuCommon =
-  'absolute h-[2px] inset-x-1 rounded-3xl bg-current transform transition-transform'
+  'absolute h-[2px] inset-x-1 rounded-3xl bg-current transform motion-safe:transition-transform'
 
 const AdminHeader: React.FC<HeaderProps> = () => {
   const { sidebarOpen, toggleSidebar } = useUI()

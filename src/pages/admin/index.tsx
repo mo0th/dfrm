@@ -1,5 +1,5 @@
 import AdminContent from '@/components/admin/AdminContent'
-import AdminWrapper from '@/components/admin/AdminLayout'
+import AdminWrapper from '@/components/admin/AdminWrapper'
 
 interface AdminHomeProps {}
 

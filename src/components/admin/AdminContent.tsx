@@ -14,7 +14,7 @@ const AdminContent: React.FC<AdminContentProps> = ({ title, children, loading })
     </div>
   ) : (
     <div className="">
-      <h1 className="mb-2 text-4xl font-bold text-purple-800">{title}</h1>
+      <h1 className="mb-2 text-4xl font-bold text-purple-800 lg:text-5xl">{title}</h1>
       {children}
     </div>
   )

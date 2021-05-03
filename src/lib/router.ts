@@ -6,6 +6,7 @@ import { sessionMiddleware } from './auth'
 import { checkAuthMiddleware } from './auth/service'
 
 export class ApiError extends Error {
+  isApiError = true
   code: number
   constructor(code: number, message: string | undefined = STATUS_CODES[code]) {
     super(message)
@@ -21,7 +22,7 @@ export const createRouter = (): ApiRouter =>
     onError: (err, _req, res) => {
       if (err instanceof Error) {
         if (process.env.NODE_ENV !== 'production') {
-          console.log(err.stack)
+          console.log(err)
         }
 
         let statusCode = 500

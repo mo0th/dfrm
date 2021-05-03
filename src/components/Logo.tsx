@@ -10,7 +10,7 @@ interface LogoProps {
 }
 
 const letterCommon =
-  'inset-0 flex items-center justify-center absolute w-8 h-8 transform transition-transform'
+  'inset-0 flex items-center justify-center absolute w-8 h-8 transform motion-safe:transition-transform'
 
 const Logo: React.FC<LogoProps> = ({ open = true, size }) => {
   const letterScale = open ? 'scale-100' : 'scale-50'

@@ -1,6 +1,6 @@
 import { getFormById } from '@/lib/forms/service'
 import { createRouter } from '@/lib/router'
-import { ApiError } from 'next/dist/next-server/server/api-utils'
+import { ApiError } from '@/lib/router'
 
 export default createRouter().get(async (req, res) => {
   const userId = req.userId as string

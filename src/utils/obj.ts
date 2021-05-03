@@ -1,4 +1,4 @@
-export const omit = (obj: Record<string, any>, keys: string[]): any => {
+export const omit = <T extends Record<string, any>>(obj: T, keys: (keyof T | string)[]): any => {
   const result = {} as any
   for (const key in obj) {
     if (!keys.includes(key)) {

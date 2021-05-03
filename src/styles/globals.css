@@ -3,10 +3,7 @@
 @tailwind utilities;
 
 html,
-body {
-  @apply min-h-screen;
-}
-
+body,
 #__next {
-  @apply min-h-screen flex flex-col;
+  @apply min-h-screen;
 }

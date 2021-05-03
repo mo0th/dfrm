@@ -4,10 +4,13 @@ import { omit } from '@/utils/obj'
 import { nanoid } from 'nanoid'
 import { schemasDb } from './base'
 
-export const getAllUserForms = async (userId: string): Promise<FormWithoutSchema[]> => {
+export const getAllUserForms = async (
+  userId: string,
+  exclude: string[] = []
+): Promise<FormWithoutSchema[]> => {
   const forms = await fetchAll<Form>(schemasDb, { ownerId: userId })
 
-  return forms.map(f => omit(f, ['schema']))
+  return forms.map(f => omit(f, ['questions', ...exclude]))
 }
 
 export const getFormById = async (userId: string, formId: string): Promise<Form | null> => {
@@ -19,7 +22,8 @@ export const createForm = async (userId: string, name: string): Promise<string> 
 
   const newForm: Form = {
     id: formId,
-    schema: [],
+    questionOrder: [],
+    questions: {},
     name,
     ownerId: userId,
     published: false,
