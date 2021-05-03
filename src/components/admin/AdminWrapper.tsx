@@ -32,7 +32,7 @@ const AdminWrapper: React.FC<MainLayoutProps> = ({ children }) => {
           />
 
           <div
-            className={`fixed py-16 bg-white md:py-4 md:sticky z-10 left-0 w-full max-w-[18rem] transform top-0 motion-safe:transition-transform overflow-y-auto ${
+            className={`fixed inset-y-0 md:inset-auto py-16 bg-white md:py-4 md:sticky z-10 left-0 w-full max-w-[18rem] transform top-0 motion-safe:transition-transform overflow-y-auto ${
               sidebarOpen ? 'translate-x-0' : '-translate-x-full'
             }`}
           >
