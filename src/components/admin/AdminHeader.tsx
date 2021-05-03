@@ -7,8 +7,6 @@ import { LogoutIcon } from '@heroicons/react/outline'
 import { GithubIconOutlined } from '../icons'
 import Logo from '../Logo'
 import Button from '../shared/Button'
-import { useEffect, useState } from 'react'
-import debounce from '@/utils/debounce'
 
 interface HeaderProps {}
 
@@ -19,26 +17,8 @@ const AdminHeader: React.FC<HeaderProps> = () => {
   const { sidebarOpen, toggleSidebar } = useUI()
   const { user, logout } = useAuth()
 
-  const [scrolled, setScrolled] = useState(false)
-
-  useEffect(() => {
-    const handler = debounce(() => {
-      setScrolled(window.scrollY > 10)
-    }, 100)
-
-    window.addEventListener('scroll', handler)
-
-    return () => {
-      window.addEventListener('scroll', handler)
-    }
-  }, [])
-
   return (
-    <header
-      className={`sticky top-0 z-20 bg-gray-200 transition-shadow ${
-        scrolled ? 'shadow-md' : 'shadow-none'
-      }`}
-    >
+    <header className={`sticky top-0 z-20 bg-gray-200 transition-shadow`}>
       <Container>
         <div className="flex flex-row items-center justify-between p-4 text-purple-800 lg:py-6">
           <div className="flex">
